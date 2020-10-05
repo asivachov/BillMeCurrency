@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Requests to /getCurrency</title>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date/Time</th>
+                    <th>Code</th>
+                    <th>IP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${logEntries.empty}">
+                    <td colspan="2"> No entries in log at this moment </td>
+                </tr>
+                <tr th:each="logEntry : ${logEntries}">
+                    <td><span th:text="${logEntry.datetime}"> Date/Time </span></td>
+                    <td><span th:text="${logEntry.code}"> Code </span></td>
+                    <td><span th:text="${logEntry.ip}"> IP </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
